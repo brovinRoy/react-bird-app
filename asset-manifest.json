@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-bird-app/static/css/main.ff053e0f.css",
+    "main.js": "/react-bird-app/static/js/main.d7bdb357.js",
+    "index.html": "/react-bird-app/index.html",
+    "main.ff053e0f.css.map": "/react-bird-app/static/css/main.ff053e0f.css.map",
+    "main.d7bdb357.js.map": "/react-bird-app/static/js/main.d7bdb357.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ff053e0f.css",
+    "static/js/main.d7bdb357.js"
+  ]
+}
