@@ -1,14 +1,14 @@
 import React from "react";
 import { useState } from "react";
+import Button from "@mui/material/Button";
+import RefreshIcon from '@mui/icons-material/Refresh';
+
+
 function App() {
-
-    const [name, setName] = useState("Parrot");
-    const [color, setColor] = useState("Green");
-    const [icon, setIcon] = useState("🦜");
-    const [image, setImage] = useState(Parrotimg());
-
-
-
+  const [name, setName] = useState("Parrot");
+  const [color, setColor] = useState("Green");
+  const [icon, setIcon] = useState("🦜");
+  const [image, setImage] = useState(Parrotimg());
 
   function Handle() {
     const Data = [
@@ -19,16 +19,12 @@ function App() {
     ];
     const ind = Math.floor(Math.random() * 4);
     const { names, colors, icons, images } = Data[ind];
-    
+
     setName(names);
     setColor(colors);
     setIcon(icons);
     setImage(images);
-    // console.log(Data,'check name')
   }
-
-  // console.log(name, 'check name')
-  // console.log(Data[ind], 'check ind')
 
   return (
     <main>
@@ -36,29 +32,14 @@ function App() {
         I am a {name} and my color is {color} and my emoji is
         {icon}
       </h1>
-      <h3>
-
-
-        <button onClick={Handle}>Click here</button>
-        {/* Please click the refresh button in the browser or{" "}
-        <a onClick={Handle} className="refresh">
-          Click here
-        </a> */}
-      </h3>
 
       <div className="birdimage">{image}</div>
+      <Button variant="contained" size="medium" color="primary" onClick={Handle} startIcon={<RefreshIcon />}>
+        Click to change bird
+      </Button>
     </main>
   );
 }
-
-
-
-
-
-
-
-
-
 
 function Parrotimg() {
   return (
@@ -92,8 +73,5 @@ function Doveimg() {
     ></img>
   );
 }
-// const handleRefresh = () => {
-//   window.location.reload();
-// };
 
 export default App;
