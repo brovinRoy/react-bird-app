@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import Button from "@mui/material/Button";
-import RefreshIcon from '@mui/icons-material/Refresh';
+import RefreshIcon from "@mui/icons-material/Refresh";
 
+import ErrorRadios from "./Radio";
 
 function App() {
   const [name, setName] = useState("Parrot");
@@ -25,16 +26,27 @@ function App() {
     setIcon(icons);
     setImage(images);
   }
-
+ 
   return (
     <main>
       <h1 className="App">
         I am a {name} and my color is {color} and my emoji is
         {icon}
       </h1>
+      <div className="imgAndRadio">
+        <div className="birdimage">{image}</div>
+        {/* Check box */}
 
-      <div className="birdimage">{image}</div>
-      <Button variant="contained" size="medium" color="primary" onClick={Handle} startIcon={<RefreshIcon />}>
+        <ErrorRadios nameData={name} />
+      </div>
+
+      <Button
+        variant="contained"
+        size="medium"
+        color="primary"
+        onClick={Handle}
+        startIconIcon={<RefreshIcon />}
+      >
         Click to change bird
       </Button>
     </main>
