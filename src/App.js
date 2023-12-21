@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import Button from "@mui/material/Button";
 import RefreshIcon from "@mui/icons-material/Refresh";
-
 import ErrorRadios from "./Radio";
 
 function App() {
@@ -10,6 +9,7 @@ function App() {
   const [color, setColor] = useState("Green");
   const [icon, setIcon] = useState("🦜");
   const [image, setImage] = useState(Parrotimg());
+  
 
   function Handle() {
     const Data = [
@@ -49,6 +49,8 @@ function App() {
       >
         Click to change bird
       </Button>
+      
+
     </main>
   );
 }

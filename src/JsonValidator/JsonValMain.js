@@ -25,6 +25,8 @@ import Skeleton from "@mui/material/Skeleton";
 import CloseIcon from "@mui/icons-material/Close";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Drawer from '@mui/material/Drawer';
+import AppSnackbar from "../AppSnackbar";
+
 
 
 function JsonValidator() {
@@ -48,6 +50,9 @@ function JsonValidator() {
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const [visibleNotifications, setVisibleNotifications] = useState(10);
   const [openDrawer, setOpenDrawer] = useState(false);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+ const [snackbarMessage, setSnackbarMessage] = useState('');
+ const [snackbarSeverity, setSnackbarSeverity] = useState('success');
 
   const [notificationData, setNotificationData] = useState([{
     NotificationId: 1,
@@ -154,12 +159,12 @@ function JsonValidator() {
     setSelectedEncoding(event.target.value);
   };
 
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-    setOpen(false);
-  };
+  // const handleClose = (event, reason) => {
+  //   if (reason === "clickaway") {
+  //     return;
+  //   }
+  //   setOpen(false);
+  // };
   // const message = () => {
   //   return validationResult.isValid ? "The JSON input is valid in JavaScript" : "The JSON input is NOT valid in JavaScript";
   // };
@@ -205,12 +210,18 @@ function JsonValidator() {
       JSON.parse(json);
       setValidationResult({ isValid: true });
       setOpen(true);
+      setSnackbarMessage("The JSON input is valid in JavaScript");
+      setSnackbarSeverity("success");
+      setSnackbarOpen(true);
       // setSeverityChange("success");
     } catch (error) {
       setValidationResult({ isValid: false });
       setOpen(true);
       // setSeverityChange("error");
       setErrorMessage(error.message);
+      setSnackbarMessage("The JSON input is NOT valid in JavaScript");
+   setSnackbarSeverity("error");
+   setSnackbarOpen(true);
     }
   };
   
@@ -493,7 +504,7 @@ function JsonValidator() {
       >
         Validate Json
       </Button>
-      <Snackbar
+      {/* <Snackbar
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
         open={open}
         onClose={handleClose}
@@ -511,7 +522,15 @@ function JsonValidator() {
             //  + errorMessage
           }
         </Alert>
-      </Snackbar>
+      </Snackbar> */}
+
+
+                <AppSnackbar 
+                open={snackbarOpen} 
+                setOpen={setSnackbarOpen}
+                message={snackbarMessage} 
+                severity={snackbarSeverity} 
+              />
 
       {/* inapp notification */}
 

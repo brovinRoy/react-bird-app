@@ -16,6 +16,7 @@ import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import SnackbarContent from '@mui/material/SnackbarContent';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Notification from "./Notification";
 
 
 function JsonValMain() {
@@ -169,6 +170,7 @@ const notifyError = () =>toast.error('Not a valid JSON', {
   
   return (
     <Container maxWidth="md">
+      <Notification/>
       <Box sx={{ textAlign: 'center', fontSize: '50px' }}>Json Validator</Box>
 
       <br></br>

@@ -125,7 +125,12 @@ function Notification() {
     },
     ]);
 
+    const [profileData, setProfileData] = useState([{
+        "ProfileId": 1,
+        "Name": "Name1",
+        "EmailId": "abc@xyz.com"
 
+    }])
 
     const NotificationDropdown = () => {
         return (
@@ -147,16 +152,20 @@ function Notification() {
         )
       }
     
-      const ProfileDropdown = () =>{
-        return(
-          
-          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '200px' }}>
-            <Avatar alt="Profile Picture" src="" sx={{ marginBottom: '10px' }}/>
-            <Typography variant="h4" sx={{ marginBottom: '7px' }}>Name</Typography>
-            <Typography variant="body2">abcd@xyz.com</Typography>
-          </Box>
-        )
-      }
+      const ProfileDropdown = () => {
+  return (
+    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '200px' }}>
+      {profileData.map((profile, index) => (
+        <Box key={profile.ProfileId} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Avatar alt="Profile Picture" src="" sx={{ marginBottom: '10px' }} />
+          <Typography variant="h4" sx={{ marginBottom: '7px' }}>{profile.Name}</Typography>
+          <Typography variant="body2">{profile.EmailId}</Typography>
+        </Box>
+      ))}
+    </Box>
+  );
+}
+
     
       const closeNotification = (index) => {
         const updatedNotifications = notificationData.filter(
